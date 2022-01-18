@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   def show
   end
   def new
-    @articles = Article.new
+    @article = Article.new
   end
   def create
     @articles = Article.new(article_params)
@@ -18,13 +18,13 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @articles.update(article_params)
+    @article.update(article_params)
 
-    redirect_to article_path(@articles)
+    redirect_to article_path(@article)
   end
 
   def destroy
-    @articles.destroy
+    @article.destroy
 
     # si lo comento , aún se pinta luego de eliminado, otra forma q no sea redirect?
     redirect_to articles_path
@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    @articles = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def article_params

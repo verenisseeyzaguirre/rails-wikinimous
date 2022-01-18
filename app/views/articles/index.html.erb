@@ -1,0 +1,18 @@
+<h1>WIKINIMOUS APP</h1>
+<%= link_to "Add a new article", new_article_path %>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article_path(article) %>
+      <%= article.content %>
+      <%# <%= link_to "Delete",
+        article_path(article),
+        method: :delete,
+        data: {
+          confirm: "Are u sure? Delete #{article.title}?"
+        }
+      %>
+    </li>
+  <% end %>
+</ul>
